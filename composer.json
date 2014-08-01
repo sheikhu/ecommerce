@@ -11,7 +11,8 @@
 	"require-dev": {
 		"fzaninotto/faker": "dev-master",
 		"way/generators": "dev-master",
-        "barryvdh/laravel-debugbar": "1.*"
+        "barryvdh/laravel-debugbar": "1.*",
+        "barryvdh/laravel-ide-helper": "1.*"
 	},
 	"autoload": {
 		"classmap": [
@@ -30,11 +31,12 @@
 		],
 		"post-update-cmd": [
 			"php artisan clear-compiled",
-			"php artisan optimize"
+			"php artisan optimize",
+            "php artisan debugbar:publish",
+            "php artisan ide-helper:generate"
 		],
 		"post-create-project-cmd": [
-			"php artisan key:generate",
-			"php artisan debugbar:publish"
+			"php artisan key:generate"
 		]
 	},
 	"config": {
