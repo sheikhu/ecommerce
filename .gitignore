@@ -9,3 +9,5 @@ Thumbs.db
 _ide_helper.php
 .idea/
 public/packages/
+/app/config/local/
+app/database/production.sqlite

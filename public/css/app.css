@@ -9,3 +9,5 @@ margin: 40px 20px 15px 20px;
 font: normal 40px/1.2 'Bree Serif', Georgia, serif;
 clear: left;
     }
+
+.login-form > h2 {margin-top: 5px;}
