@@ -4,6 +4,7 @@
     <title>App</title>
 
     {{ HTML::style('css/bootstrap.css') }}
+    {{ HTML::style('http://fontawesome.io/assets/font-awesome/css/font-awesome.css') }}
     {{ HTML::style('css/app.css') }}
 </head>
 <body>
@@ -19,7 +20,9 @@
             <span class="icon-bar"></span>
         </button>
 
-        {{ link_to_route('homepage', 'Acme', [], ['class' => 'navbar-brand'])}}
+        <a href="#" class="navbar-brand"><i class="fa fa-bolt fa-2x"></i></a>
+        {{-- link_to_route('homepage', 'Acme', [], ['class' => 'navbar-brand'])--}}
+
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -29,12 +32,14 @@
             <li><a href="#">Link</a></li>
         </ul>
         @if(Auth::guest() && !Route::is('login'))
-        <form class="navbar-form navbar-right" role="search">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-        </form>
+        {{ BootForm::open()->action(route('login'))->addClass('navbar-form navbar-right') }}
+
+            {{ BootForm::text('', 'username')->placeholder('Username')}}
+            {{ BootForm::password('', 'password')->placeholder('Password')}}
+
+            {{ BootForm::submit('Submit')->addClass('btn btn-default') }}
+
+        {{ BootForm::close() }}
         @endif
 
         @if(Auth::check())

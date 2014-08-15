@@ -11,6 +11,8 @@
 |
 */
 
+Route::when('*', 'csrf', array('post'));
+
 Route::get('/', function()
 {
     return View::make('hello');

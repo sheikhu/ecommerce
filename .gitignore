@@ -11,3 +11,4 @@ _ide_helper.php
 public/packages/
 /app/config/local/
 app/database/production.sqlite
+public/bower_components/

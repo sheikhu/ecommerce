@@ -67,7 +67,7 @@ Route::filter('auth.basic', function()
 
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/home');
+	if (Auth::check()) return Redirect::route('homepage');
 });
 
 /*
@@ -85,6 +85,7 @@ Route::filter('csrf', function()
 {
 	if (Session::token() != Input::get('_token'))
 	{
+		return Redirect::back()->with('error', 'Csrf token is invalid.');
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
