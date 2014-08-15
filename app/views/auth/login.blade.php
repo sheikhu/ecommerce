@@ -1,6 +1,5 @@
 @extends('layout')
 
-@section('top') @stop
 
 @section('container')
 
