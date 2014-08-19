@@ -3,9 +3,11 @@
 <head>
     <title>App</title>
 
+    @section('styles')
     {{ HTML::style('css/bootstrap.css') }}
     {{ HTML::style('http://fontawesome.io/assets/font-awesome/css/font-awesome.css') }}
     {{ HTML::style('css/app.css') }}
+    @show
 </head>
 <body>
 <div class="container">
@@ -20,8 +22,9 @@
             <span class="icon-bar"></span>
         </button>
 
-        <a href="#" class="navbar-brand"><i class="fa fa-bolt fa-2x"></i></a>
-        {{-- link_to_route('homepage', 'Acme', [], ['class' => 'navbar-brand'])--}}
+        <a href="{{ route('homepage') }}" class="navbar-brand">
+            <i class="fa fa-bolt fa-2x"></i>
+        </a>
 
     </div>
 
@@ -31,16 +34,7 @@
             <li class="active"><a href="#">Link</a></li>
             <li><a href="#">Link</a></li>
         </ul>
-        @if(Auth::guest() && !Route::is('login'))
-        {{ BootForm::open()->action(route('login'))->addClass('navbar-form navbar-right') }}
-
-            {{ BootForm::text('', 'username')->placeholder('Username')}}
-            {{ BootForm::password('', 'password')->placeholder('Password')}}
-
-            {{ BootForm::submit('Submit')->addClass('btn btn-default') }}
-
-        {{ BootForm::close() }}
-        @endif
+        @include('partials.navbar-login-form')
 
         @if(Auth::check())
         <ul class="nav navbar-nav navbar-right">
