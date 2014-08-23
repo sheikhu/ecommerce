@@ -13,7 +13,7 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <span class="alert alert-success">
-                {{ Session::get('success') }}
+                <span class="glyphicon glyphicon-exclamation-sign"></span>{{ Session::get('success') }}
         </span>
     </div>
 </div>

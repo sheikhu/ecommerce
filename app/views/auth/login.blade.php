@@ -1,5 +1,12 @@
 @extends('layout')
 
+@section('styles')
+    @parent
+
+    <style>
+    .container {background-color: transparent;}
+    </style>
+@stop
 
 @section('container')
 
@@ -10,19 +17,25 @@
         {{ BootForm::open()->action(route('login'))->addClass('login-form') }}
 
         @if(Session::has('error'))
-        <div class="alert alert-danger">
+        <div class="alert alert-danger fade in">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
             <strong>Error !</strong> {{ Session::get('error') }}
         </div>
         @endif
-        <h2 class="text-center">Authentication</h2>
+        <h2 class="text-center">
+            <span class="fa-stack">
+              <i class="fa fa-lock fa-stack-1x"></i>
+              <i class="fa fa-circle-o-notch fa-stack-2x text-info fa-rotate-90"></i>
+            </span>
+        </h2>
         <hr>
-        {{ BootForm::text('Email', 'email')->placeholder('john.doe@domain.tld')->required()}}
+        {{ BootForm::text('Email', 'email')
+                ->placeholder('john.doe@domain.tld')->required() }}
 
         {{ BootForm::password('Password', 'password')->required()}}
 
 
-        {{ BootForm::submit('Login')->addClass('btn-block btn-default') }}
+        {{ BootForm::submit('Login')->addClass('btn-block btn-primary') }}
 
         {{ BootForm::token() }}
         {{ BootForm::close() }}

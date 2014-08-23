@@ -4,9 +4,7 @@
     <title>App</title>
 
     @section('styles')
-    {{ HTML::style('css/bootstrap.css') }}
-    {{ HTML::style('http://fontawesome.io/assets/font-awesome/css/font-awesome.css') }}
-    {{ HTML::style('css/app.css') }}
+    {{ HTML::style('dist/styles.css')}}
     @show
 </head>
 <body>
@@ -30,9 +28,9 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Link</a></li>
-            <li><a href="#">Link</a></li>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Contact</a></li>
         </ul>
         @include('partials.navbar-login-form')
 

@@ -52,10 +52,10 @@ Route::group(['before' => 'guest'], function(){
 
         if(Auth::attempt($credentials))
         {
-            return Redirect::to('/home')->withSuccess('You are successfully authenticated!');
+            return Redirect::to('/home')->with('success', 'You are successfully authenticated!');
         }
 
-        return Redirect::to('login')->withInput()->withError('Bad credentials ! Please retry.');
+        return Redirect::to('login')->withInput()->with('error','Bad credentials ! Please retry.');
     }]);
 
     Route::controller('password', 'RemindersController');

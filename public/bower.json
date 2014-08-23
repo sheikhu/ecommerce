@@ -15,6 +15,7 @@
   ],
   "dependencies": {
 
-    "redactor": "*"
+    "redactor": "*",
+    "bootstrap": "*"
   }
 }
