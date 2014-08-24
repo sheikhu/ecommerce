@@ -20,12 +20,10 @@ return array(
 		'Way\Generators\GeneratorsServiceProvider',
 		'Barryvdh\Debugbar\ServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-        'Mmanos\Casset\CassetServiceProvider',
 		]),
 
 	'aliases' => append_config([
 		 'Debugbar' => 'Barryvdh\Debugbar\Facade',
-         'Casset' => 'Mmanos\Casset\Casset',
 		 ])
 
 	);

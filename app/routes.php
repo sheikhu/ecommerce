@@ -48,17 +48,38 @@ Route::group(['before' => 'guest'], function(){
 
     Route::post('login', ['as' => 'post_login', function(){
 
+        sleep(1);
         $credentials = Input::only(array('email', 'password'));
 
-        if(Auth::attempt($credentials))
-        {
-            return Redirect::to('/home')->with('success', 'You are successfully authenticated!');
+        try {
+            Sentry::authenticate($credentials, false);
         }
+        catch (Exception $e) {
+            return Redirect::to('login')->withInput()->with('error','Bad credentials ! Please retry.');
+        }
+
+
+        if(Sentry::authenticate($credentials, false))
+        {
+
+            if(Request::ajax())
+                return Response::json([
+                    'status' => 'success',
+                    'message' => 'You are successfully authenticated !',
+                    'redirect' => route('homepage')]
+                    );
+
+            return Redirect::to('/home')->with('success', 'You are successfully authenticated !');
+        }
+
+
+        if(Request::ajax())
+            return Response::json(['status' => 'failed', 'message' => 'Bad credentials !']);
 
         return Redirect::to('login')->withInput()->with('error','Bad credentials ! Please retry.');
     }]);
 
-    Route::controller('password', 'RemindersController');
+Route::controller('password', 'RemindersController');
 
 
 });

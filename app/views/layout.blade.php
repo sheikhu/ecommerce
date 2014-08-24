@@ -4,7 +4,7 @@
     <title>App</title>
 
     @section('styles')
-    {{ HTML::style('dist/styles.css')}}
+        {{ HTML::style('dist/css/styles.css')}}
     @show
 </head>
 <body>

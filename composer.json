@@ -6,7 +6,8 @@
 	"require": {
 		"laravel/framework": "4.2.*",
         "intervention/image": "dev-master",
-        "adamwathan/bootforms": "v0.2"
+        "adamwathan/bootforms": "v0.2",
+        "cartalyst/sentry": "2.1.*"
 	},
 	"require-dev": {
 		"fzaninotto/faker": "dev-master",

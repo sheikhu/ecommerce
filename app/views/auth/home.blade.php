@@ -23,7 +23,7 @@
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <h1>Well done !</h1>
         <p>
-            You are authenticated as <span class="label label-info">{{ Auth::user()->username }}</span> !
+            You are authenticated as <span class="label label-info">{{ Sentry::getUser()->email }}</span> !
         </p>
         <p class="redactor">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
