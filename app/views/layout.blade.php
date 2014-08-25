@@ -41,7 +41,7 @@
                 {{ Auth::user() }} <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="#">Profile</a></li>
-                    <li>{{ link_to('logout', _('Change Password'))}}</li>
+                    <li>{{ link_to('logout', _('Change Password')) }}</li>
                     <li>{{ link_to('logout', _('Logout')) }}</li>
                 </ul>
             </li>

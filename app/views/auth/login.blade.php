@@ -71,7 +71,7 @@
     @parent
 
     <script>
-    /*
+
     $(function(){
 
         $('.login-form').on('submit', function(e) {
@@ -99,6 +99,6 @@
             });
 
         });
-    });*/
+    });
     </script>
 @stop
