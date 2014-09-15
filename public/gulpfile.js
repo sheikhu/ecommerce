@@ -5,10 +5,8 @@ var rename = require('gulp-rename');
 var path = require('path');
 
 
-gulp.task('less', function() {
-    gulp.src(['./sandstone/bootstrap.less'])
-
-    .pipe(less())
+gulp.task('styles', function() {
+    gulp.src(['ecomm/css/*.css'])
     .pipe(minifiycss())
     .pipe(rename('styles.css'))
     .pipe(gulp.dest('dist/css'));
@@ -18,14 +16,26 @@ gulp.task('less', function() {
 
 gulp.task('images', function() {
 
-    gulp.src(['images/*'])
+    gulp.src(['ecomm/images/*'])
     .pipe(gulp.dest('dist/images'));
 });
 
-gulp.task('default', ['less', 'images'], function() {
+gulp.task('scripts', function() {
 
-    gulp.watch(['vendor/**/*.less', './sandstone/*.less', 'css/*.css'], function() {
-        gulp.run('less');
+    gulp.src([
+        'ecomm/js/jquery-1.9.0.min.js',
+        'ecomm/js/jquery.openCarousel.js',
+        'ecomm/js/easin.js',
+        'ecomm/js/move-top.js'
+        ])
+    .pipe(rename('scripts.js'))
+    .pipe(gulp.dest('dist/js'));
+});
+
+gulp.task('default', ['styles', 'images'], function() {
+
+    gulp.watch(['ecomm/'], function() {
+        gulp.run(['styles', 'images']);
     });
 });
 
