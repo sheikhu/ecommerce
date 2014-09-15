@@ -24,7 +24,7 @@ gulp.task('images', function() {
 
 gulp.task('default', ['less', 'images'], function() {
 
-    gulp.watch(['vendor/**/*.less', './sandstone/*.less'], function() {
+    gulp.watch(['vendor/**/*.less', './sandstone/*.less', 'css/*.css'], function() {
         gulp.run('less');
     });
 });

@@ -1,12 +1,5 @@
 @extends('layout')
 
-@section('styles')
-@parent
-
-<style>
-    .container {background-color: transparent;}
-</style>
-@stop
 
 @section('container')
 

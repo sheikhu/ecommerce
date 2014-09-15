@@ -29,6 +29,8 @@
 		"post-install-cmd": [
 			"php artisan clear-compiled",
 			"php artisan optimize",
+			"php artisan debugbar:publish",
+            "php artisan auth:reminders-table"
 			"mkdir public/assets/cache -p",
 			"chmod -R 777 public/assets/cache",
 			"touch public/assets/cache/.gitignore"
@@ -37,9 +39,7 @@
 		"post-update-cmd": [
 			"php artisan clear-compiled",
 			"php artisan optimize",
-            "php artisan debugbar:publish",
             "php artisan ide-helper:generate",
-            "php artisan auth:reminders-table"
 		],
 		"post-create-project-cmd": [
 			"php artisan key:generate"

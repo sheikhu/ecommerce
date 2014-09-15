@@ -22,8 +22,9 @@
         {{ BootForm::text('Email', 'email')->placeholder('john.doe@domain.tld')->required()}}
 
 
-        {{ BootForm::submit('Reset')->addClass('btn-block') }}
+        {{ BootForm::submit('Reset')->addClass('btn-block btn-primary') }}
 
+        {{ BootForm::token() }}
         {{ BootForm::close() }}
 
         <div class="row">
