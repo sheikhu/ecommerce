@@ -10,10 +10,10 @@ class UsersTableSeeder extends Seeder {
 		$faker = Faker::create();
 
 
-			Sentry::createUser([
+			User::create([
+            'username'  => 'sheikhu',
             'email'     =>  'sheikhu02@gmail.com',
-            'password'  =>  'passer',
-            'activated' => true
+            'password'  =>  'passer'
 			]);
 
 	}

@@ -193,6 +193,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 		'BootForm' 			=> 'AdamWathan\BootForms\Facades\BootForm',
 		'Sentry' => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+		'Image'  => 'Intervention\Image\Facades\Image'
 
 	),
 
