@@ -29,12 +29,12 @@ class Product extends \Eloquent {
 
         Product::creating(function($p)
         {
-            $p->slug = Str::title($p->title);
+            $p->slug = Str::slug($p->title);
 
             $image = Input::file('image');
 
             if( is_null($image) )
-                return;
+                return true;
 
             $filename = date('d-m-Y-H:i:s').'-'.uniqid().'.'.$image->getClientOriginalExtension();
 
@@ -47,6 +47,7 @@ class Product extends \Eloquent {
 
             $p->image = $path;
 
+            return true;
         });
     }
 

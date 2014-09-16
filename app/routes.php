@@ -16,6 +16,11 @@ require 'admin_routes.php';
 // csrf protection for all post requests
 Route::when('*', 'csrf', array('post'));
 
+Route::get('hello', function()
+{
+    return View::make('hello');
+});
+
 Route::get('/', function()
 {
     return View::make('index');

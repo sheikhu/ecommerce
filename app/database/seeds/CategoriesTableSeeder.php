@@ -9,10 +9,10 @@ class CategoriesTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-        Eloquent::unguard();
 		foreach(range(1, 10) as $index)
 		{
             $name = $faker->sentence(2);
+
 			Category::create([
                 'name' => $name,
                 'slug' => Str::slug($name)
