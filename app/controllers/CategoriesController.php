@@ -2,16 +2,27 @@
 
 class CategoriesController extends \BaseController {
 
-	/**
+    /**
+     * @var Category
+     */
+    private $category;
+
+    public function __construct(Category $category)
+    {
+        $this->category = $category;
+    }
+
+
+    /**
 	 * Display a listing of categories
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		$categories = Category::all();
-
-		return View::make('categories.index', compact('categories'));
+		$categories = $this->category->all();
+        $category = $this->category;
+		return View::make('categories.index', compact('categories', 'category'));
 	}
 
 	/**
@@ -21,7 +32,7 @@ class CategoriesController extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('categories.create');
+		return View::make('categories.create', ['category' => $this->category]);
 	}
 
 	/**
@@ -31,7 +42,7 @@ class CategoriesController extends \BaseController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), Category::$rules);
+		$validator = Validator::make($data = Input::all(), $this->category->rules);
 
 		if ($validator->fails())
 		{
@@ -40,10 +51,7 @@ class CategoriesController extends \BaseController {
 
 		}
 
-		$category = new Category;
-
-		$category->name = $data['name'];
-		$category->slug = Str::slug($data['name']);
+		$category = $this->category->fill($data);
 
 		$category->save();
 

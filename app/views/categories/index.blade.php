@@ -43,7 +43,7 @@
     <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
         <h4>Create new category</h4>
         <hr>
-        @include('categories.create')
+        @include('categories.form', ['route' => route('admin.categories.store'), 'method' => 'POST'])
     </div>
 </div>
 @stop

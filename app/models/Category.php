@@ -3,7 +3,7 @@
 class Category extends \Eloquent {
 
 	// Add your validation rules here
-	public static $rules = [
+	public $rules = [
 		'name' => 'required|min:3'
 	];
 
@@ -19,6 +19,16 @@ class Category extends \Eloquent {
     public function __toString()
     {
         return $this->name;
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        Category::creating(function($c){
+
+            $c->slug = Str::slug($c->name);
+        });
     }
 
 }
