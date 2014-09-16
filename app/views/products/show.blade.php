@@ -1,0 +1,1 @@
+/media/Alternative/Koders/ecomm/app/views/products/show.blade.php
