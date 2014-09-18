@@ -36,7 +36,7 @@ class Product extends \Eloquent {
             if( is_null($image) )
                 return true;
 
-            $filename = date('d-m-Y-H:i:s').'-'.uniqid().'.'.$image->getClientOriginalExtension();
+            $filename = time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
 
             $path = '/uploads/products/'.$filename;
 
